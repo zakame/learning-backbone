@@ -6,8 +6,12 @@ starting with [[https://nodejs.org][Node]] and [[https://github.com/webpack/webp
 
 * Getting started
 
+Needs cpm (or Carton,) yarn (or npm,) and Docker Compose.
+
 #+BEGIN_SRC sh
-cpanm Mojolicious Mango
+cpm install
 yarn
 docker-compose up
 #+END_SRC
+
+And open http://localhost. 
