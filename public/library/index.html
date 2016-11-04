@@ -1,0 +1,33 @@
+<!doctype html> <!-- -*- mode: web -*- -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Backbone.js Library</title>
+    <link href="style.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div id="books">
+      <form id="addBook" action="">
+        <div>
+          <label for="coverImage">CoverImage: </label><input id="coverImage" name="" type="file" value=""/>
+          <label for="title">Title: </label><input id="title" name="" type="text" value=""/>
+          <label for="author">Author: </label><input id="author" name="" type="text" value=""/>
+          <label for="releaseDate">Release date: </label><input id="releaseDate" name="" type="text" value=""/>
+          <label for="keywords">Keywords: </label><input id="keywords" name="" type="text" value=""/>
+          <button id="add">Add</button>
+        </div>
+      </form>
+    </div>
+    <script id="bookTemplate" type="text/template">
+      <img alt="" src="<%= coverImage %>"/>
+      <ul>
+        <li><%= title %></li>
+        <li><%= author %></li>
+        <li><%= $.format.date( new Date(releaseDate), 'MMMM yyyy' ) %></li>
+        <li><% _.each(keywords, function(k) {%> <%= k %> <%}) %></li>
+      </ul>
+      <button class="delete">Delete</button>
+    </script>
+    <script src="/library.bundle.js"></script>
+  </body>
+</html>
