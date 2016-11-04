@@ -1,0 +1,13 @@
+#+TITLE: (Re)learning Backbone.js in 2016
+
+This is just my adaptation of Addy Osmani's [[https://github.com/addyosmani/backbone-fundamentals][backbone-fundamentals]]
+exercises while trying to fit it in a 2016/2017 JavaScript stack,
+starting with [[https://nodejs.org][Node]] and [[https://github.com/webpack/webpack][webpack]], and also under a [[https://www.docker.com/][Docker]] environment.
+
+* Getting started
+
+#+BEGIN_SRC sh
+cpanm Mojolicious Mango
+yarn
+docker-compose up
+#+END_SRC
