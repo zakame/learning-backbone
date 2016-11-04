@@ -1,0 +1,11 @@
+FROM tianon/mojo
+
+COPY server.pl /code/server.pl
+WORKDIR /code
+
+RUN cpanm Mango
+
+EXPOSE 4711
+ENV MOJO_LISTEN "http://*:4711"
+
+ENTRYPOINT ["/usr/local/bin/morbo", "server.pl"]

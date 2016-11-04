@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  db:
+    image: mongo
+    networks:
+      - backbone
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    volumes:
+      - ./server.pl:/code/server.pl
+      - ./public:/code/public
+    ports:
+      - "4711:4711"
+    networks:
+      - backbone
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    volumes:
+      - .:/code
+    ports:
+      - "80:8080"
+      - "8080:8080"
+    networks:
+      - backbone
+
+networks:
+  backbone:
