@@ -1,11 +1,12 @@
 FROM tianon/mojo
 
 COPY server.pl /code/server.pl
+COPY cpanfile* /code/
 WORKDIR /code
 
-RUN cpanm Mango
+RUN cpanm Carton && carton install
 
 EXPOSE 4711
 ENV MOJO_LISTEN "http://*:4711"
 
-ENTRYPOINT ["/usr/local/bin/morbo", "server.pl"]
+ENTRYPOINT ["/usr/local/bin/carton", "exec", "morbo", "server.pl"]
