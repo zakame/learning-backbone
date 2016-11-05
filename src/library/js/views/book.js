@@ -4,14 +4,14 @@ var BookView = Backbone.View.extend({
   events: {
     'click .delete': 'deleteBook'
   },
-  template: _.template( $('#bookTemplate').html() ),
-  deleteBook: function() {
+  template: _.template($('#bookTemplate').html()),
+  deleteBook: function () {
     this.model.destroy();
 
     this.remove();
   },
-  render: function() {
-    this.$el.html( this.template( this.model.attributes ) );
+  render: function () {
+    this.$el.html(this.template(this.model.attributes));
     return this;
   }
 });

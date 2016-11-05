@@ -1,6 +1,6 @@
 var TodoView = Backbone.View.extend({
   tagName: 'li',
-  template: _.template( Backbone.$('#item-template').html() ),
+  template: _.template(Backbone.$('#item-template').html()),
   events: {
     'click .toggle': 'toggleCompleted',
     'dblclick label': 'edit',
@@ -8,52 +8,54 @@ var TodoView = Backbone.View.extend({
     'keypress .edit': 'updateOnEnter',
     'blur .edit': 'close'
   },
-  initialize: function() {
+  initialize: function () {
     this.listenTo(this.model, 'change', this.render);
     this.listenTo(this.model, 'destroy', this.remove);
     this.listenTo(this.model, 'visible', this.toggleVisible);
   },
-  render: function() {
-    this.$el.html( this.template( this.model.attributes ) );
+  render: function () {
+    this.$el.html(this.template(this.model.attributes));
 
-    this.$el.toggleClass( 'completed', this.model.get('completed') );
+    this.$el.toggleClass('completed', this.model.get('completed'));
     this.toggleVisible();
 
     this.$input = this.$('.edit');
     return this;
   },
-  toggleVisible: function() {
-    this.$el.toggleClass( 'hidden', this.isHidden() );
+  toggleVisible: function () {
+    this.$el.toggleClass('hidden', this.isHidden());
   },
-  isHidden: function() {
+  isHidden: function () {
     var isCompleted = this.model.get('completed');
     return (
-      (!isCompleted && TodoFilter === 'completed')
-        || (isCompleted && TodoFilter === 'active')
+      (!isCompleted && TodoFilter === 'completed') ||
+      (isCompleted && TodoFilter === 'active')
     );
   },
-  toggleCompleted: function() {
+  toggleCompleted: function () {
     this.model.toggle();
   },
-  edit: function() {
+  edit: function () {
     this.$el.addClass('editing');
     this.$input.focus();
   },
-  close: function() {
+  close: function () {
     var value = this.$input.val().trim();
 
     if (value) {
-      this.model.save({ title: value });
+      this.model.save({
+        title: value
+      });
     }
 
     this.$el.removeClass('editing');
   },
-  updateOnEnter: function(e) {
-    if ( e.which === ENTER_KEY ) {
+  updateOnEnter: function (e) {
+    if (e.which === ENTER_KEY) {
       this.close();
     }
   },
-  clear: function() {
+  clear: function () {
     this.model.destroy();
   }
 });
