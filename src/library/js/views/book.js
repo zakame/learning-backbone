@@ -1,3 +1,5 @@
+var _ = require('underscore');
+
 var BookView = Backbone.View.extend({
   tagName: 'div',
   className: 'bookContainer',

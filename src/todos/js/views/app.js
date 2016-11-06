@@ -1,3 +1,5 @@
+var _ = require('underscore');
+
 var Todos = require('../collections/todos');
 var TodoView = require('./todos');
 
