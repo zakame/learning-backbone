@@ -15,7 +15,7 @@ module.exports = {
     todos: './src/todos/js/app.js'
   },
   output: {
-    path: __dirname + '/public',
+    path: __dirname + '/public/assets',
     publicPath: '/assets/',
     filename: '[name].bundle.js'
   },
