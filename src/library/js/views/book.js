@@ -1,4 +1,4 @@
-var _ = require('underscore');
+var bookTemplate = require('../../templates/book.html');
 
 var BookView = Backbone.View.extend({
   tagName: 'div',
@@ -6,7 +6,7 @@ var BookView = Backbone.View.extend({
   events: {
     'click .delete': 'deleteBook'
   },
-  template: _.template($('#bookTemplate').html()),
+  template: bookTemplate,
   deleteBook: function () {
     this.model.destroy();
 

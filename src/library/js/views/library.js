@@ -1,5 +1,3 @@
-var _ = require('underscore');
-
 var Book = require('../models/book');
 var BookView = require('./book');
 var Library = require('../collections/library');

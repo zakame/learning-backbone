@@ -1,8 +1,8 @@
-var _ = require('underscore');
+var itemTemplate = require('../../templates/item.html');
 
 var TodoView = Backbone.View.extend({
   tagName: 'li',
-  template: _.template(Backbone.$('#item-template').html()),
+  template: itemTemplate,
   events: {
     'click .toggle': 'toggleCompleted',
     'dblclick label': 'edit',

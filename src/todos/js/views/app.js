@@ -1,11 +1,11 @@
-var _ = require('underscore');
+var statsTemplate = require('../../templates/stats.html');
 
 var Todos = require('../collections/todos');
 var TodoView = require('./todos');
 
 var AppView = Backbone.View.extend({
   el: '.todoapp',
-  statsTemplate: _.template(Backbone.$('#stats-template').html()),
+  statsTemplate: statsTemplate,
   events: {
     'keypress .new-todo': 'createOnEnter',
     'click .clear-completed': 'clearCompleted',

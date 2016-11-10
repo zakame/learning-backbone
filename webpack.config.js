@@ -1,3 +1,5 @@
+var webpack = require('webpack');
+
 module.exports = {
   devServer: {
     compress: true,
@@ -29,12 +31,20 @@ module.exports = {
         test: /\.(jpe?g|png|gif|)$/i,
         loader: 'file-loader'
       },
-    ]
-  },
       {
         test: /\.html$/,
         loader: 'underscore-template-loader'
       }
+    ]
+  },
+  plugins: [
+    new webpack.ProvidePlugin({
+      _: 'underscore',
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery'
+    })
+  ],
   resolve: {
     alias: {
       'jquery-dateformat': 'jquery-dateformat/dist/jquery-dateFormat.js'
