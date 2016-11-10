@@ -31,6 +31,10 @@ module.exports = {
       },
     ]
   },
+      {
+        test: /\.html$/,
+        loader: 'underscore-template-loader'
+      }
   resolve: {
     alias: {
       'jquery-dateformat': 'jquery-dateformat/dist/jquery-dateFormat.js'
