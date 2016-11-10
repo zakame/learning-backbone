@@ -18,16 +18,6 @@
         </div>
       </form>
     </div>
-    <script id="bookTemplate" type="text/template">
-      <img alt="" src="<%= coverImage %>"/>
-      <ul>
-        <li><%= title %></li>
-        <li><%= author %></li>
-        <li><%= $.format.date( new Date(releaseDate), 'MMMM yyyy' ) %></li>
-        <li><% _.each(keywords, function(k) {%> <%= k %> <%}) %></li>
-      </ul>
-      <button class="delete">Delete</button>
-    </script>
     <script src="/assets/library.bundle.js"></script>
   </body>
 </html>

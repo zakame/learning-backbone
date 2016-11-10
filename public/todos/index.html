@@ -21,25 +21,6 @@
     <div class="info">
       <p>Double-click to edit a todo</p>
     </div>
-    <script id="item-template" type="text/template">
-      <div class="view">
-        <input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
-        <label><%= title %></label>
-        <button class="destroy"></button>
-      </div>
-      <input class="edit" value="<%= title %>">
-    </script>
-    <script id="stats-template" type="text/template">
-      <span class="todo-count"><strong><%= remaining %></strong> <%= remaining === 1 ? 'item' : 'items' %> left</span>
-      <ul class="filters">
-        <li><a class="selected" href="#/">All</a></li>
-        <li><a href="#/active">Active</a></li>
-        <li><a href="#/completed">Completed</a></li>
-      </ul>
-      <% if (completed) { %>
-      <button class="clear-completed">Clear completed (<%= completed %>)</button>
-      <% } %>
-    </script>
     <script src="/assets/todos.bundle.js"></script>
   </body>
 </html>
