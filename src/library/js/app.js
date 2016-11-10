@@ -1,4 +1,3 @@
-require('../../globals');
 require('../css/app.css');
 
 require('jquery-dateformat');

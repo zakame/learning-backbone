@@ -1,5 +1,3 @@
-require('../../globals');
-
 ENTER_KEY = 13;
 TodoFilter = '';
 
