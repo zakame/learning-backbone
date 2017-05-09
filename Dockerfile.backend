@@ -1,4 +1,4 @@
-FROM tianon/mojo
+FROM perl:5.24
 
 COPY server.pl /code/server.pl
 COPY cpanfile* /code/
@@ -9,4 +9,4 @@ RUN cpanm Carton && carton install
 EXPOSE 4711
 ENV MOJO_LISTEN "http://*:4711"
 
-ENTRYPOINT ["/usr/local/bin/carton", "exec", "morbo", "server.pl"]
+ENTRYPOINT ["/usr/local/bin/carton", "exec", "perl", "local/bin/morbo", "server.pl"]
