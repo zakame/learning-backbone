@@ -16,8 +16,8 @@
     "jquery-ui": "^1.12.1",
     "style-loader": "^0.13.1",
     "underscore-template-loader": "^0.7.3",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^2.5.1",
+    "webpack-dev-server": "^2.4.4"
   },
   "scripts": {
     "build": "webpack -p",
