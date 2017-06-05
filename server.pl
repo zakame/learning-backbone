@@ -6,7 +6,7 @@ use Mango::BSON ':bson';
 
 plugin 'PODRenderer';
 
-helper mango => sub { state $mango = Mango->new('mongodb://db/library') };
+helper mango => sub { state $mango = Mango->new($ENV{DB}) };
 helper books => sub { state $book  = shift->mango->db->collection('books') };
 
 helper dt => sub { Mojo::Date->new->epoch($_[1] / 1000)->to_datetime };

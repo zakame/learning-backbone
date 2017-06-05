@@ -8,7 +8,7 @@ module.exports = {
     port: '8080',
     proxy: {
       '/api': {
-        target: 'http://backend:4711'
+        target: process.env.BACKEND
       }
     }
   },

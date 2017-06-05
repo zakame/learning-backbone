@@ -9,12 +9,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.backend
+    command: carton exec -- morbo server.pl
+    environment:
+      - DB=mongo://db/library
+      - MOJO_LISTEN=http://*:4711
     volumes:
       - ./server.pl:/code/server.pl
       - ./public:/code/public
-      - ./local:/code/local
       - ./cpanfile:/code/cpanfile
       - ./cpanfile.snapshot:/code/cpanfile.snapshot
+      - carton:/carton
     ports:
       - "4711:4711"
     networks:
@@ -23,8 +27,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.frontend
+    command: yarn run start --modules-folder /node_modules
+    environment:
+      - BACKEND=http://backend:4711
     volumes:
-      - .:/code
+      - ./package.json:/code/package.json
+      - ./webpack.config.js:/code/webpack.config.js
+      - ./yarn.lock:/code/yarn.lock
+      - ./public:/code/public
+      - ./src:/code/src
+      - node_modules:/node_modules
     ports:
       - "80:8080"
       - "8080:8080"
@@ -33,3 +45,7 @@ services:
 
 networks:
   backbone:
+
+volumes:
+  carton:
+  node_modules:
