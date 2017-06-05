@@ -16,7 +16,6 @@ under sub {
 
   # No caching, and allow CORS from anywhere
   $self->res->headers->cache_control('no-cache');
-  $self->res->headers->access_control_allow_origin('*');
 
   return 1;
 };
