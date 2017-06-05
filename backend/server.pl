@@ -74,7 +74,7 @@ post '/api/books' => sub {
 
       return $self->reply->exception($err) if $err;
 
-      $book->{_id} = $oid;
+      $book->{_id}         = $oid;
       $book->{releaseDate} = $self->dt($book->{releaseDate});
 
       app->log->info("created $oid");
